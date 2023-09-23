@@ -18,10 +18,10 @@ public class CatShoot : MonoBehaviour
         if(instance == null) { instance= this; }
     }
 
-    public void Shoot(Vector3 shot_dir)
+    public void Shoot()
     {
         GameObject fired_bullet = Instantiate(bullet, bullet_start_pos.position, Quaternion.Euler(0, 0, 0));
         Rigidbody rb = fired_bullet.GetComponent<Rigidbody>();
-        rb.AddForce(shot_dir * bullet_speed);
+        rb.AddForce(bullet_start_pos.forward * bullet_speed);
     }
 }

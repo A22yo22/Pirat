@@ -18,8 +18,8 @@ public class CatMovement : MonoBehaviour
 
     void Awake()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -43,6 +43,14 @@ public class CatMovement : MonoBehaviour
             {
                 rb.AddForce(transform.up * jump_force);
             }
+        }
+
+
+        // Shoot
+        if (Input.GetMouseButton(0))
+        {
+            //Shoot bullet
+            CatShoot.instance.Shoot();
         }
 
         // Grounded check
