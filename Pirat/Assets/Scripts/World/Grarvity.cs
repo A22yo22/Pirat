@@ -8,8 +8,6 @@ public class Grarvity : MonoBehaviour
     [Header("Settings")]
     public float gravity = 9.18f;
 
-    public bool is_grounded = false;
-
     [Header("References")]
     [SerializeField] Transform world;
 
@@ -24,13 +22,10 @@ public class Grarvity : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!is_grounded)
-        {
-            Vector3 dir = (world.position - transform.position).normalized;
-            Vector3 cat_up = -transform.up;
+        Vector3 dir = (world.position - transform.position).normalized;
+        Vector3 cat_up = -transform.up;
 
-            transform.rotation = Quaternion.FromToRotation(cat_up, dir) * transform.rotation;
-            rb.AddForce(dir * gravity);
-        }
+        transform.rotation = Quaternion.FromToRotation(cat_up, dir) * transform.rotation;
+        rb.AddForce(dir * gravity);
     }
 }

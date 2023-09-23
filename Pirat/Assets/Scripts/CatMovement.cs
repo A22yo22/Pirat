@@ -5,6 +5,7 @@ using UnityEngine;
 public class CatMovement : MonoBehaviour
 {
     // public vars
+    public float mouse_sensitivity_x = 1;
     public float walk_speed;
     public float jump_force = 220;
     public LayerMask grounded_mask;
@@ -17,15 +18,15 @@ public class CatMovement : MonoBehaviour
 
     void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         // Look rotation:
-        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouseSensitivityX);
+        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouse_sensitivity_x);
 
         // Calculate movement:
         float inputX = Input.GetAxisRaw("Horizontal");
