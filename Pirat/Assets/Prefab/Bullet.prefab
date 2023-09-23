@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa156ab78a7fd040a6487f7cd021aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 80
+  gravity: 90
   world: {fileID: 0}
 --- !u!114 &2918006994832137681
 MonoBehaviour:
@@ -161,4 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210b057055c7065419cada0daa3617ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 1

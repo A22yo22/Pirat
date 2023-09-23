@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class BulletDamage : MonoBehaviour
 {
-    public float damage = 1f;
+    public int damage = 1;
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.transform.tag);
+
         if (collision.transform.CompareTag("Enemy"))
         {
-            collision.transform.GetComponent<Health>().Subtract_Health(3);
+            collision.transform.GetComponent<Health>().Subtract_Health(damage);
+            Destroy(gameObject);
         }
     }
 }
