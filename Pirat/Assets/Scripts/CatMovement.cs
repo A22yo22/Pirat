@@ -45,19 +45,9 @@ public class CatMovement : MonoBehaviour
             }
         }
 
-
-        // Shoot
-        if (Input.GetMouseButton(0))
-        {
-            //Shoot bullet
-            CatShoot.instance.Shoot();
-        }
-
         // Grounded check
         Ray ray = new Ray(transform.position, -transform.up);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 1 + .1f, grounded_mask))
+        if (Physics.Raycast(ray, 1 + .1f, grounded_mask))
         {
             grounded = true;
         }
