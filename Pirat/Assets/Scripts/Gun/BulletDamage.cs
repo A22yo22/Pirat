@@ -9,8 +9,6 @@ public class BulletDamage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.transform.tag);
-
         if (collision.transform.CompareTag("Enemy"))
         {
             collision.transform.GetComponent<Health>().Subtract_Health(damage);

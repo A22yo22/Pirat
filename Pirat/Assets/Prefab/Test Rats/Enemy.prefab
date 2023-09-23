@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a55a4f590bbee44a949c851f6d0437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 1
   form: 1
   walking_rat: 50
   flying_rat: 100

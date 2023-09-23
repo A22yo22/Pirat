@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet_speed: 1000
-  gun_cooldown: 0.5
+  gun_cooldown: 2.5
   gun_cooldown_timer: 0.5
   bullet_destroy_time: 1
   bullet: {fileID: 389539202791587244, guid: 95cff34729e09a9458a4cb61dc480156, type: 3}
@@ -797,9 +797,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b53a0e2e5e3574dbfcbb71c4f0448b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is_looked: 0
   mouse_sensitivity_x: 1
   walk_speed: 6
   jump_force: 300
+  knockback_force: 600
   grounded_mask:
     serializedVersion: 2
     m_Bits: 64

@@ -36,10 +36,11 @@ public class CatShoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //Shoot bullet
-            if (gun_cooldown_timer <= 0)
+            if (gun_cooldown_timer <= 0 || CatMovement.instance.grounded)
             {
                 Shoot();
                 gun_cooldown_timer = gun_cooldown;
+                CatMovement.instance.is_looked = false;
             }
         }
     }
@@ -51,5 +52,8 @@ public class CatShoot : MonoBehaviour
         rb.AddForce(bullet_start_pos.forward * bullet_speed);
 
         Destroy(fired_bullet, bullet_destroy_time);
+
+        CatMovement.instance.Apply_Knockback();
+        CatMovement.instance.is_looked = true;
     }
 }
