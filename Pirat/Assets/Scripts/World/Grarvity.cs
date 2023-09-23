@@ -15,38 +15,22 @@ public class Grarvity : MonoBehaviour
 
     Rigidbody rb;
 
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!is_grounded)
         {
-            Vector3 dir = world.position - transform.position;
+            Vector3 dir = (world.position - transform.position).normalized;
+            Vector3 cat_up = -transform.up;
 
-            rb.AddForce(dir * gravity * Time.deltaTime);
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            is_grounded = true;
-        }
-        else
-        {
-            is_grounded = false;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            is_grounded = false;
+            transform.rotation = Quaternion.FromToRotation(cat_up, dir) * transform.rotation;
+            rb.AddForce(dir * gravity);
         }
     }
 }
