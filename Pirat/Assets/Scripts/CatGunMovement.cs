@@ -11,8 +11,6 @@ public class CatGunMovement : MonoBehaviour
 
     // System vars
     Vector3 move_dir;
-
-    bool grounded;
     Rigidbody rb;
 
     void Awake()
@@ -23,31 +21,20 @@ public class CatGunMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Grounded check
-        Ray ground_ray = new Ray(transform.position, -transform.up);
-        RaycastHit ground_hit;
-        if (Physics.Raycast(ground_ray, out ground_hit, 1 + .1f, grounded_mask))
-        {
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
-    }
-
-    void FixedUpdate()
-    {
         // Apply force
-        if (Input.GetMouseButtonDown(0))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, gun_mask))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, gun_mask))
+            if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log(hit.transform.name);
+                //Move Cat
                 move_dir = (transform.position - hit.point).normalized;
                 rb.AddForce(move_dir * gun_force);
+                //Roate Cat
+
+                //Shoot bullet
+                CatShoot.instance.Shoot((hit.point - transform.position).normalized);
             }
         }
     }

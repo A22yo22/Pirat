@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Grarvity : MonoBehaviour
@@ -18,6 +19,8 @@ public class Grarvity : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+        world = GameObject.FindGameObjectWithTag("Ground").transform;
     }
 
     void FixedUpdate()
