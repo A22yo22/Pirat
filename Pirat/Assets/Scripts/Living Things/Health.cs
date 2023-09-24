@@ -30,6 +30,7 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
+            StartCoroutine(Death());
             Destroy(gameObject);
 
             switch (form)
@@ -46,5 +47,24 @@ public class Health : MonoBehaviour
                     break;
             }
         }
+    }
+
+    IEnumerable Death()
+    {
+        switch (form)
+        {
+            case living_form.cat:
+                break;
+
+            case living_form.walking_rat:
+                ScoreManager.instance.Add_Score(walking_rat);
+                break;
+
+            case living_form.flying_rat:
+                ScoreManager.instance.Add_Score(flying_rat);
+                break;
+        }
+
+        yield return new WaitForSeconds(2);
     }
 }

@@ -670,10 +670,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ce67c58d7fd3948a6bd933d2a72afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet_speed: 1000
+  bullet_speed: 1500
   gun_cooldown: 2.5
   gun_cooldown_timer: 0.5
-  bullet_destroy_time: 1
+  bullet_destroy_time: 10
   bullet: {fileID: 389539202791587244, guid: 95cff34729e09a9458a4cb61dc480156, type: 3}
   bullet_start_pos: {fileID: 93458503}
 --- !u!114 &506322328
