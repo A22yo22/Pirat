@@ -19,6 +19,10 @@ public class CatShoot : MonoBehaviour
 
     public ParticleSystem gun_shoot_ps;
 
+    //Audio
+    public List<AudioClip> shots;
+    public AudioSource shoot_sound;
+
     // System vars
     public GameObject bullet;
     public Transform bullet_start_pos;
@@ -81,10 +85,14 @@ public class CatShoot : MonoBehaviour
 
         gun_shoot_ps.Play();
 
+        shoot_sound.pitch = Random.Range(0.8f, 1.2f);
+        shoot_sound.clip = shots[Random.Range(0, 3)];
+        shoot_sound.Play();
+
         CatMovement.instance.Apply_Knockback();
         CatMovement.instance.is_looked = true;
 
-        ShakeCamera(2f, .1f);
+        ShakeCamera(4f, .1f);
     }
 
     public void ShakeCamera(float intensity, float time)

@@ -19,6 +19,10 @@ public class Health : MonoBehaviour
     public int walking_rat = 50;
     public int flying_rat = 100;
 
+    [Header("Blood")]
+    public ParticleSystem blood_ps;
+    public ParticleSystem blood_clouds_ps;
+
     [Header("Animation")]
     public Animator rat_ani_contoller;
 
@@ -53,6 +57,10 @@ public class Health : MonoBehaviour
                 ScoreManager.instance.Add_Score(flying_rat);
                 break;
         }
+
+        //Blood
+        blood_ps.Play();
+        blood_clouds_ps.Play();
 
         rat_ani_contoller.SetTrigger("Dead");
 
