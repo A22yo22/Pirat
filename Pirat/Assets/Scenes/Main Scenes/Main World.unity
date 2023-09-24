@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_ingame: 1
   score: 0
-  time_left: 300
+  time_left: 60
   score_t: {fileID: 1089381116}
   time_left_t: {fileID: 764291682}
 --- !u!1 &108558912
@@ -848,7 +848,7 @@ MonoBehaviour:
   shake_timer: 0
   gun_cooldown: 2.5
   gun_cooldown_timer: 0.5
-  bullet_destroy_time: 4
+  bullet_destroy_time: 2
   gun_shoot_ps: {fileID: 8283297842181832430}
   shots:
   - {fileID: 8300000, guid: 60dcfa909682f3a498176e4298af6316, type: 3}
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time Left: 300'
+  m_text: 'Time Left: 60'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1712,7 +1712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -425.4, y: 467.7}
+  m_AnchoredPosition: {x: -426.29, y: 467.7}
   m_SizeDelta: {x: 721.74, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1089381116
@@ -3474,7 +3474,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

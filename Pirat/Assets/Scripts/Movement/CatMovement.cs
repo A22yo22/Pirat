@@ -23,7 +23,7 @@ public class CatMovement : MonoBehaviour
     Rigidbody rb;
     public Animator cat_anim;
 
-    void Awake()
+    void Start()
     {
         if(instance == null) { instance = this; }
 
