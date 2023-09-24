@@ -626,17 +626,17 @@ PrefabInstance:
     - target: {fileID: 4602850355488606283, guid: eaaa7a9c9e9e2604bbdd854750653146,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 187.7
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 4602850355488606283, guid: eaaa7a9c9e9e2604bbdd854750653146,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.6
+      value: 117.6
       objectReference: {fileID: 0}
     - target: {fileID: 4602850355488606283, guid: eaaa7a9c9e9e2604bbdd854750653146,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 344.6
+      value: -173.5
       objectReference: {fileID: 0}
     - target: {fileID: 4602850355488606283, guid: eaaa7a9c9e9e2604bbdd854750653146,
         type: 3}
@@ -780,11 +780,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet_speed: 1000
+  shake_timer: 0
   gun_cooldown: 2.5
   gun_cooldown_timer: 0.5
   bullet_destroy_time: 10
   bullet: {fileID: 389539202791587244, guid: 95cff34729e09a9458a4cb61dc480156, type: 3}
   bullet_start_pos: {fileID: 93458503}
+  cam: {fileID: 1218040624}
 --- !u!114 &506322328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2193,6 +2195,7 @@ GameObject:
   - component: {fileID: 1669963458}
   - component: {fileID: 1669963457}
   - component: {fileID: 1669963459}
+  - component: {fileID: 1669963460}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -2237,7 +2240,7 @@ MonoBehaviour:
   m_ScreenY: 0.65
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.19
+  m_SoftZoneWidth: 0.1
   m_SoftZoneHeight: 0.35
   m_BiasX: 0
   m_BiasY: 0
@@ -2278,6 +2281,23 @@ MonoBehaviour:
   CameraRadius: 0.2
   DampingIntoCollision: 0
   DampingFromCollision: 2
+--- !u!114 &1669963460
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669963454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 20a705aea2d80e0478fb89b6f43d8530, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 3
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1787039759
 GameObject:
   m_ObjectHideFlags: 0

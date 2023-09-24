@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CatShoot : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class CatShoot : MonoBehaviour
 
     // Public vars
     public float bullet_speed = 50;
+    public float shake_timer;
 
     // Gun
     public float gun_cooldown = 0.5f;
@@ -18,6 +20,7 @@ public class CatShoot : MonoBehaviour
     // System vars
     public GameObject bullet;
     public Transform bullet_start_pos;
+    public CinemachineVirtualCamera cam;
 
     private void Awake()
     {
@@ -30,6 +33,18 @@ public class CatShoot : MonoBehaviour
         if (gun_cooldown_timer > 0)
         {
             gun_cooldown_timer -= Time.deltaTime;
+        }
+
+        //Shake Timer
+        if(shake_timer > 0)
+        {
+            shake_timer -= Time.deltaTime;
+
+            if (shake_timer <= 0)
+            {
+                CinemachineBasicMultiChannelPerlin cam_perlin = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                cam_perlin.m_AmplitudeGain = 0f;
+            }
         }
 
         // Shoot
@@ -58,5 +73,14 @@ public class CatShoot : MonoBehaviour
 
         CatMovement.instance.Apply_Knockback();
         CatMovement.instance.is_looked = true;
+
+        ShakeCamera(2f, .1f);
+    }
+
+    public void ShakeCamera(float intensity, float time)
+    {
+        CinemachineBasicMultiChannelPerlin cam_perlin = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        cam_perlin.m_AmplitudeGain = intensity;
+        shake_timer = time;
     }
 }
