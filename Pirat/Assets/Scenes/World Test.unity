@@ -1040,7 +1040,7 @@ MonoBehaviour:
   is_looked: 0
   mouse_sensitivity_x: 1
   walk_speed: 6
-  jump_force: 300
+  jump_force: 0
   knockback_force: 600
   grounded_mask:
     serializedVersion: 2
@@ -2320,7 +2320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353420301}
   m_Layer: 5
-  m_Name: 1
+  m_Name: LB Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
