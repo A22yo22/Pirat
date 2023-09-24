@@ -33,6 +33,7 @@ public class ScoreManager : MonoBehaviour
 
     public void Game_Finished()
     {
+        Debug.Log("Score");
         StartCoroutine(LeaderboardManager.instance.Submit_Score_Routine(score));
     }
 }

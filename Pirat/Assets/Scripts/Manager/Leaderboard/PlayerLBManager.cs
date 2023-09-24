@@ -7,7 +7,13 @@ public class PlayerLBManager : MonoBehaviour
 {
     void Start()
     {
-        StartCoroutine(Login_Routine());
+        StartCoroutine(Setup_Routine());
+    }
+
+    IEnumerator Setup_Routine()
+    {
+        yield return Login_Routine();
+        yield return LeaderboardManager.instance.Fetch_Highscores_Rotine();
     }
 
     IEnumerator Login_Routine()
