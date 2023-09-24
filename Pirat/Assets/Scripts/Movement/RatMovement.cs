@@ -51,7 +51,7 @@ public class RatMovement : MonoBehaviour
                 break;
 
             case Rat_State.Walk:
-                localMove = transform.TransformDirection(transform.forward) * rat_move_speed * Time.fixedDeltaTime;
+                localMove = transform.forward * rat_move_speed * Time.fixedDeltaTime;
                 rb.MovePosition(rb.position + localMove);
                 break;
 
