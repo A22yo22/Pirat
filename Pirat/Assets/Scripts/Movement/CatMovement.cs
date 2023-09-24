@@ -32,7 +32,6 @@ public class CatMovement : MonoBehaviour
 
     private void Update()
     {
-
         if (grounded && ScoreManager.instance.is_ingame)
         {
             // Look rotation:

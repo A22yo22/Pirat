@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6821997849926328908}
   - component: {fileID: 1621835955035143684}
+  - component: {fileID: 8626953985760918576}
   - component: {fileID: 7263590185470638339}
   - component: {fileID: 2261489407797545193}
   - component: {fileID: 1146567991134448821}
@@ -53,6 +54,20 @@ MonoBehaviour:
   form: 1
   walking_rat: 50
   flying_rat: 100
+--- !u!114 &8626953985760918576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420933870869771926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b13ffa525ef384f848280c63973e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rat_move_speed: 0
+  move_dir: {x: 0, y: 0, z: 0}
 --- !u!33 &7263590185470638339
 MeshFilter:
   m_ObjectHideFlags: 0

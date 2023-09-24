@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_ingame: 1
   score: 0
-  time_left: 10
+  time_left: 300
   score_t: {fileID: 1089381116}
   time_left_t: {fileID: 764291682}
 --- !u!1 &49373147
@@ -2481,6 +2481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c3a2efe6bff384eb682069af2652b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is_menu_scene: 0
   player_name_inp: {fileID: 0}
 --- !u!114 &1370467387
 MonoBehaviour:

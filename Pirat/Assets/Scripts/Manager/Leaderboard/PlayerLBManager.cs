@@ -6,12 +6,18 @@ using TMPro;
 
 public class PlayerLBManager : MonoBehaviour
 {
+    public bool is_menu_scene = true;
+
     public TMP_InputField player_name_inp;
 
     void Start()
     {
         StartCoroutine(Setup_Routine());
-        player_name_inp.characterLimit = 15;
+
+        if (is_menu_scene)
+        {
+            player_name_inp.characterLimit = 15;
+        }
     }
 
     public void Set_Player_Name()
