@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
             if (time_left > 0)
             {
                 time_left -= Time.deltaTime;
-                time_left_t.text = Mathf.RoundToInt(time_left).ToString();
+                time_left_t.text = "Time left: " + Mathf.RoundToInt(time_left).ToString();
             }
             else
             {
