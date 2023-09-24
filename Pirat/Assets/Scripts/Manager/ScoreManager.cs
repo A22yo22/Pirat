@@ -20,5 +20,19 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         score_t.text = "Score: " + score;
+        if (score >= 500)
+        {
+            Game_Finished();
+        }
+    }
+
+    public void Game_Over()
+    {
+        //No score to save
+    }
+
+    public void Game_Finished()
+    {
+        StartCoroutine(LeaderboardManager.instance.Submit_Score_Routine(score));
     }
 }
