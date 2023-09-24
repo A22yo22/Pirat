@@ -4255,9 +4255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fefad279002bd479ecd939c9d84443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {r: 0.21568629, g: 0.21568629, b: 0.21568629, a: 1}
-  color2: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
-  color3: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+  color1: {r: 1, g: 0, b: 0, a: 1}
+  color2: {r: 0.764151, g: 0.42253056, b: 0, a: 1}
+  color3: {r: 0, g: 0.7924528, b: 0.070148155, a: 1}
 --- !u!1 &1590442358
 GameObject:
   m_ObjectHideFlags: 0
