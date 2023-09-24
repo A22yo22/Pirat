@@ -11,8 +11,6 @@ public class LeaderboardManager : MonoBehaviour
 
     string leaderboard_key = "globalHighscore";
 
-    string validPattern = @"^[a-zA-Z0-9\s]+$";
-
     public TextMeshProUGUI player_names_t;
     public TextMeshProUGUI player_scores_t;
 
