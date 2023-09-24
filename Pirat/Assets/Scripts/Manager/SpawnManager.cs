@@ -6,6 +6,10 @@ public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager instance;
 
+    public bool spawn_alowance;
+
+    public float spawn_time;
+
     public GameObject walking_rat_pf;
     public GameObject flying_rat_pf;
 
@@ -23,6 +27,20 @@ public class SpawnManager : MonoBehaviour
             Set_Spawn_Pos();
             Spawn_Walking_Rat();
         }
+
+        StartCoroutine(Spawn_Walking_Rat_Timer());
+    }
+
+    public IEnumerator Spawn_Walking_Rat_Timer()
+    {
+        yield return new WaitForSeconds(spawn_time);
+
+        if (spawn_alowance)
+        {
+            Set_Spawn_Pos();
+            Spawn_Walking_Rat();
+        }
+        StartCoroutine(Spawn_Walking_Rat_Timer());
     }
 
     public void Set_Spawn_Pos()

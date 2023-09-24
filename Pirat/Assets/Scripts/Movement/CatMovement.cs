@@ -33,7 +33,7 @@ public class CatMovement : MonoBehaviour
     private void Update()
     {
 
-        if (grounded)
+        if (grounded && ScoreManager.instance.is_ingame)
         {
             // Look rotation:
             transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouse_sensitivity_x);
@@ -67,7 +67,7 @@ public class CatMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (grounded)
+        if (grounded && ScoreManager.instance.is_ingame)
         {
             // Apply movement to rigidbody
             Vector3 localMove = transform.TransformDirection(move_amount) * Time.fixedDeltaTime;

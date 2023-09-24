@@ -36,11 +36,14 @@ public class CatShoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //Shoot bullet
-            if (gun_cooldown_timer <= 0 || CatMovement.instance.grounded)
+            if (ScoreManager.instance.is_ingame)
             {
-                Shoot();
-                gun_cooldown_timer = gun_cooldown;
-                CatMovement.instance.is_looked = false;
+                if (gun_cooldown_timer <= 0 || CatMovement.instance.grounded)
+                {
+                    Shoot();
+                    gun_cooldown_timer = gun_cooldown;
+                    CatMovement.instance.is_looked = false;
+                }
             }
         }
     }
