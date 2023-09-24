@@ -58,7 +58,7 @@ public class LeaderboardManager : MonoBehaviour
                     temp_player_names += members[i].rank + ". ";
                     if (members[i].player.name != "")
                     {
-                        temp_player_names += Validate_And_Sanitize_Input(members[i].player.name);
+                        temp_player_names += members[i].player.name;
                     }
                     else
                     {
@@ -79,12 +79,5 @@ public class LeaderboardManager : MonoBehaviour
             }
         });
         yield return new WaitWhile(() => done == false);
-    }
-
-    private string Validate_And_Sanitize_Input(string input)
-    {
-        // Remove any unwanted characters using regular expressions.
-        string sanitizedInput = Regex.Replace(input, validPattern, "");
-        return sanitizedInput;
     }
 }
