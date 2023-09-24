@@ -23,6 +23,10 @@ public class Health : MonoBehaviour
     public ParticleSystem blood_ps;
     public ParticleSystem blood_clouds_ps;
 
+    [Header("Sounds")]
+    public List<AudioClip> death_sounds;
+    public AudioSource source_sound;
+
     [Header("Animation")]
     public Animator rat_ani_contoller;
 
@@ -61,6 +65,11 @@ public class Health : MonoBehaviour
         //Blood
         blood_ps.Play();
         blood_clouds_ps.Play();
+
+        //Play Sound
+        source_sound.pitch = Random.Range(0.8f, 1.2f);
+        source_sound.clip = death_sounds[Random.Range(0, 3)];
+        source_sound.Play();
 
         rat_ani_contoller.SetTrigger("Dead");
 

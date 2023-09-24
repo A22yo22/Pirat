@@ -85,6 +85,7 @@ public class CatShoot : MonoBehaviour
 
         gun_shoot_ps.Play();
 
+        //Sounds
         shoot_sound.pitch = Random.Range(0.8f, 1.2f);
         shoot_sound.clip = shots[Random.Range(0, 3)];
         shoot_sound.Play();
