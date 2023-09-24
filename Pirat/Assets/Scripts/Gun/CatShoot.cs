@@ -21,6 +21,7 @@ public class CatShoot : MonoBehaviour
     public GameObject bullet;
     public Transform bullet_start_pos;
     public CinemachineVirtualCamera cam;
+    public Animator cat_anim;
 
     private void Awake()
     {
@@ -53,9 +54,9 @@ public class CatShoot : MonoBehaviour
             //Shoot bullet
             if (ScoreManager.instance.is_ingame)
             {
-                if (gun_cooldown_timer <= 0 || CatMovement.instance.grounded)
+                if (gun_cooldown_timer <= 0)
                 {
-                    Shoot();
+                    StartCoroutine(Shoot());
                     gun_cooldown_timer = gun_cooldown;
                     CatMovement.instance.is_looked = false;
                 }
@@ -63,12 +64,17 @@ public class CatShoot : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public IEnumerator Shoot()
     {
+        cat_anim.SetTrigger("Shoot");
+
+        gun_cooldown_timer = 2.5f;
+
+        yield return new WaitForSeconds(0.2f);
+
         GameObject fired_bullet = Instantiate(bullet, bullet_start_pos.position, Quaternion.Euler(0, 0, 0));
         Rigidbody rb = fired_bullet.GetComponent<Rigidbody>();
         rb.AddForce(bullet_start_pos.forward * bullet_speed);
-
         Destroy(fired_bullet, bullet_destroy_time);
 
         CatMovement.instance.Apply_Knockback();

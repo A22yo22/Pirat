@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class CatMovement : MonoBehaviour
@@ -17,9 +18,10 @@ public class CatMovement : MonoBehaviour
 
     // System vars
     public bool grounded;
-    Vector3 move_amount;
+    public Vector3 move_amount;
     Vector3 smooth_move_velocity;
     Rigidbody rb;
+    public Animator cat_anim;
 
     void Awake()
     {
@@ -32,7 +34,7 @@ public class CatMovement : MonoBehaviour
 
     private void Update()
     {
-        if (grounded && ScoreManager.instance.is_ingame)
+        if (CatShoot.instance.gun_cooldown_timer <= 0 && ScoreManager.instance.is_ingame)
         {
             // Look rotation:
             transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouse_sensitivity_x);
@@ -45,6 +47,15 @@ public class CatMovement : MonoBehaviour
             Vector3 targetMoveAmount = moveDir * walk_speed;
             move_amount = Vector3.SmoothDamp(move_amount, targetMoveAmount, ref smooth_move_velocity, .15f);
 
+            if (inputX > 0 || inputY > 0)
+            {
+                cat_anim.SetTrigger("Walk");
+            }
+            else
+            {
+                cat_anim.SetTrigger("Idle");
+            }
+
             // Jump
             if (Input.GetButtonDown("Jump"))
             {
@@ -54,19 +65,19 @@ public class CatMovement : MonoBehaviour
 
         // Grounded check
         Ray ray = new Ray(transform.position, -transform.up);
-        if (Physics.Raycast(ray, 1 + .1f, grounded_mask))
+        if (Physics.Raycast(ray, 2 + .1f, grounded_mask))
         {
             grounded = true;
         }
         else
         {
-            grounded = false;
+            //grounded = false;
         }
     }
 
     void FixedUpdate()
     {
-        if (grounded && ScoreManager.instance.is_ingame)
+        if (CatShoot.instance.gun_cooldown_timer <= 0 && ScoreManager.instance.is_ingame)
         {
             // Apply movement to rigidbody
             Vector3 localMove = transform.TransformDirection(move_amount) * Time.fixedDeltaTime;
