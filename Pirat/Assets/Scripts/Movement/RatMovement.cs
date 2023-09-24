@@ -18,6 +18,9 @@ public class RatMovement : MonoBehaviour
 
     public float new_rat_state_timer;
 
+    [Header("Animation")]
+    public Animator rat_ani_contoller;
+
     Rigidbody rb;
 
     void Start()
@@ -64,7 +67,11 @@ public class RatMovement : MonoBehaviour
         rat_state = (Rat_State)Random.Range(0, 2);
         if(rat_state == Rat_State.Walk)
         {
-            rat_move_speed = Random.Range(0, 3);
+            rat_ani_contoller.SetTrigger("Walk");
+        }
+        else
+        {
+            rat_ani_contoller.SetTrigger("Idle");
         }
     }
 

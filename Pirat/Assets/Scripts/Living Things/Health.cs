@@ -19,6 +19,9 @@ public class Health : MonoBehaviour
     public int walking_rat = 50;
     public int flying_rat = 100;
 
+    [Header("Animation")]
+    public Animator rat_ani_contoller;
+
     public void Add_Health(int amount)
     {
         health += amount;
@@ -30,27 +33,11 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            //StartCoroutine(Death());
-
-            Destroy(gameObject);
-
-            switch (form)
-            {
-                case living_form.cat:
-                    break;
-
-                case living_form.walking_rat:
-                    ScoreManager.instance.Add_Score(walking_rat);
-                    break;
-
-                case living_form.flying_rat:
-                    ScoreManager.instance.Add_Score(flying_rat);
-                    break;
-            }
+            StartCoroutine(Death());
         }
     }
 
-    IEnumerable Death()
+    IEnumerator Death()
     {
         switch (form)
         {
@@ -66,6 +53,10 @@ public class Health : MonoBehaviour
                 break;
         }
 
+        rat_ani_contoller.SetTrigger("Dead");
+
         yield return new WaitForSeconds(2);
+
+        Destroy(gameObject);
     }
 }
