@@ -17,6 +17,8 @@ public class CatShoot : MonoBehaviour
 
     public float bullet_destroy_time = 1f;
 
+    public ParticleSystem gun_shoot_ps;
+
     // System vars
     public GameObject bullet;
     public Transform bullet_start_pos;
@@ -76,6 +78,8 @@ public class CatShoot : MonoBehaviour
         Rigidbody rb = fired_bullet.GetComponent<Rigidbody>();
         rb.AddForce(bullet_start_pos.forward * bullet_speed);
         Destroy(fired_bullet, bullet_destroy_time);
+
+        gun_shoot_ps.Play();
 
         CatMovement.instance.Apply_Knockback();
         CatMovement.instance.is_looked = true;

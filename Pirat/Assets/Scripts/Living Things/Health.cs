@@ -46,6 +46,7 @@ public class Health : MonoBehaviour
 
             case living_form.walking_rat:
                 ScoreManager.instance.Add_Score(walking_rat);
+                GetComponent<RatMovement>().rat_move_speed = 0f;
                 break;
 
             case living_form.flying_rat:

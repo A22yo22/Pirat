@@ -595,17 +595,17 @@ PrefabInstance:
     - target: {fileID: 4602850355488606283, guid: eaaa7a9c9e9e2604bbdd854750653146,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 4602850355488606283, guid: eaaa7a9c9e9e2604bbdd854750653146,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 117.6
+      value: 373.1
       objectReference: {fileID: 0}
     - target: {fileID: 4602850355488606283, guid: eaaa7a9c9e9e2604bbdd854750653146,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -173.5
+      value: -512.4
       objectReference: {fileID: 0}
     - target: {fileID: 4602850355488606283, guid: eaaa7a9c9e9e2604bbdd854750653146,
         type: 3}
@@ -758,7 +758,8 @@ MonoBehaviour:
   shake_timer: 0
   gun_cooldown: 2.5
   gun_cooldown_timer: 0.5
-  bullet_destroy_time: 10
+  bullet_destroy_time: 4
+  gun_shoot_ps: {fileID: 8283297842181832430}
   bullet: {fileID: 389539202791587244, guid: 95cff34729e09a9458a4cb61dc480156, type: 3}
   bullet_start_pos: {fileID: 957354568}
   cam: {fileID: 1218040624}
@@ -821,7 +822,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 45}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &512711900
 MonoBehaviour:
@@ -836,15 +837,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6745098}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: f876fae2dcdba034e8ff0e20067bc19c, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -891,6 +892,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5782391236059715308}
+  - {fileID: 3146220031603956919}
   m_Father: {fileID: 506322321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &591554797
@@ -3334,7 +3336,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3455,12 +3457,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5887352283241876230}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.035056904, y: 0.056528702, z: -0.7062373, w: 0.7048436}
-  m_LocalPosition: {x: 1.8906281, y: 0.95240045, z: 1.9561071}
-  m_LocalScale: {x: 0.057617586, y: 0.057617586, z: 0.057617586}
+  m_LocalRotation: {x: -0.035056923, y: 0.05652872, z: -0.7062374, w: 0.70484346}
+  m_LocalPosition: {x: 0.311, y: 0.214, z: 0.625}
+  m_LocalScale: {x: 0.013252049, y: 0.013252048, z: 0.013252046}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5782391236059715308}
+  m_Father: {fileID: 558532802}
   m_LocalEulerAnglesHint: {x: -181.744, y: -37.694, z: 90}
 --- !u!4 &3211061464894801522
 Transform:
@@ -4057,7 +4059,6 @@ Transform:
   m_Children:
   - {fileID: 3211061464894801522}
   - {fileID: 89414982978702306}
-  - {fileID: 3146220031603956919}
   m_Father: {fileID: 558532802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5887352283241876230
@@ -4700,7 +4701,7 @@ ParticleSystem:
   m_GameObject: {fileID: 5887352283241876230}
   serializedVersion: 8
   lengthInSec: 0.1
-  simulationSpeed: 1
+  simulationSpeed: 1.33
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -4708,7 +4709,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4827,7 +4828,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 221
+      scalar: 105.65878
       minScalar: 100
       maxCurve:
         serializedVersion: 2
@@ -4881,7 +4882,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.59751904, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.77476203, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5262,14 +5263,14 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 4757
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.67
+      scalar: 0.17
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5323,7 +5324,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 53.364925
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1

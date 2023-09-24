@@ -47,7 +47,7 @@ public class CatMovement : MonoBehaviour
             Vector3 targetMoveAmount = moveDir * walk_speed;
             move_amount = Vector3.SmoothDamp(move_amount, targetMoveAmount, ref smooth_move_velocity, .15f);
 
-            if (inputX > 0 || inputY > 0)
+            if (inputX != 0 || inputY != 0)
             {
                 cat_anim.SetTrigger("Walk");
             }
