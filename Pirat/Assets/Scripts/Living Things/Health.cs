@@ -30,7 +30,8 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            StartCoroutine(Death());
+            //StartCoroutine(Death());
+
             Destroy(gameObject);
 
             switch (form)
