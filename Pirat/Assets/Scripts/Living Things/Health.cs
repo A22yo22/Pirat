@@ -55,7 +55,7 @@ public class Health : MonoBehaviour
 
         rat_ani_contoller.SetTrigger("Dead");
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.7f);
 
         Destroy(gameObject);
     }
