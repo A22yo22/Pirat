@@ -54,5 +54,8 @@ public class ScoreManager : MonoBehaviour
     {
         StartCoroutine(LeaderboardManager.instance.Submit_Score_Routine(score));
         SceneManager.LoadScene("Main Menu");
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

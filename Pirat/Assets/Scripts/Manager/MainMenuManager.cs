@@ -12,13 +12,16 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         main_menu_obj.SetActive(true);
         leaderboard_obj.SetActive(true);
     }
 
     public void Start_Game()
     {
-        SceneManager.LoadScene("World Test");
+        SceneManager.LoadScene("Main World");
     }
 
     public void Options()
