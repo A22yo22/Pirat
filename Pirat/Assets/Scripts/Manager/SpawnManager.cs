@@ -56,6 +56,8 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator Spawn_Walking_Rat_Timer()
     {
+        transform.rotation = Quaternion.Euler(90, 0, 0);
+
         yield return new WaitForSeconds(spawn_time);
 
         spawn_alowance = true;

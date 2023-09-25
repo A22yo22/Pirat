@@ -43,13 +43,11 @@ public class ScoreManager : MonoBehaviour
 
                 if (time_left >= 29f && time_left <= 30f && !thirty_played)
                 {
-                    Debug.LogWarning("30");
                     audio_controller.clip = thrity_sec_sounds;
                     audio_controller.Play();
                 }
                 else if(time_left >= 9f && time_left <= 10f && !thirty_played)
                 {
-                    Debug.LogWarning("10");
                     audio_controller.clip = ten_sec_sounds;
                     audio_controller.Play();
                 }
