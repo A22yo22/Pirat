@@ -4613,11 +4613,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn_alowance: 1
   spawn_time: 5
-  ratation_speed: 60
   walking_rat_pf: {fileID: 6420933870869771926, guid: 74c1faefbd86f6f46ad679b18f798a04,
     type: 3}
   spawn_pos_start: {fileID: 1039360311}
   spawn_pos: {fileID: 850060993}
+  ratation_speed: 60
+  bibbub_sounds:
+  - {fileID: 8300000, guid: e4502fd5e3a052940a7ebaff0c441913, type: 3}
+  - {fileID: 8300000, guid: 6afb2a950f8aa9643b4022a3ae9baa3a, type: 3}
+  - {fileID: 8300000, guid: 09bb166897e3ae04bbec29b9f9bc3855, type: 3}
+  audio_controller: {fileID: 506322329}
 --- !u!1 &1914348150
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,19 +6,23 @@ public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager instance;
 
+    [Header("Spawn Stuff")]
     public bool spawn_alowance;
 
     public float spawn_time;
-
-    [Header("Rotatiom")]
-    public float ratation_speed = 60f;
-    Quaternion start_rotation;
-    Quaternion rotation_destination;
-
     public GameObject walking_rat_pf;
 
     public Transform spawn_pos_start;
     public Transform spawn_pos;
+
+    [Header("Rotation")]
+    public float ratation_speed = 60f;
+    Quaternion start_rotation;
+    Quaternion rotation_destination;
+
+    [Header("Sound")]
+    public List<AudioClip> bibbub_sounds;
+    public AudioSource audio_controller;
 
     private void Awake()
     {
@@ -58,8 +62,16 @@ public class SpawnManager : MonoBehaviour
 
         Set_Spawn_Pos();
 
+        //Play Audio
+        audio_controller.pitch = Random.Range(0.8f, 1.2f);
+        audio_controller.clip = bibbub_sounds[Random.Range(0, 3)];
+        audio_controller.Play();
+
         StartCoroutine(Spawn_Walking_Rat_Timer());
     }
+
+    //Sounds
+
 
     public void Start_Set_Spawn_Pos()
     {
