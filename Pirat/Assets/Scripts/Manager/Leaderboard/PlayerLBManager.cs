@@ -14,6 +14,7 @@ public class PlayerLBManager : MonoBehaviour
     {
         StartCoroutine(Setup_Routine());
 
+
         if (is_menu_scene)
         {
             player_name_inp.characterLimit = 15;
@@ -51,6 +52,9 @@ public class PlayerLBManager : MonoBehaviour
                 Debug.Log("Player was logged in!");
 
                 PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
+
+                Debug.Log("RANK: _________________-----: " + LeaderboardManager.instance.Get_rank());
+
                 done = true;
             }
             else

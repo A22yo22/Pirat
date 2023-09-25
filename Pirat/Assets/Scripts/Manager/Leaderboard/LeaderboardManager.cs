@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LootLocker;
 using LootLocker.Requests;
 using TMPro;
-using System.Text.RegularExpressions;
 
 public class LeaderboardManager : MonoBehaviour
 {
@@ -77,5 +77,23 @@ public class LeaderboardManager : MonoBehaviour
             }
         });
         yield return new WaitWhile(() => done == false);
+    }
+
+    public int Get_rank()
+    {
+        int rank = 0;
+        LootLockerSDKManager.GetPlayerInfo((response) =>
+        {
+            if (response.success)
+            {
+                rank =  response.statusCode;
+            }
+            else
+            {
+                rank = 0;
+            }
+        });
+
+        return rank;
     }
 }

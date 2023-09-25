@@ -17,6 +17,9 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text time_left_t;
 
 
+    public GameObject game_ui_screen;
+    public GameObject game_finished_screen;
+
     private void Awake()
     {
         if(instance == null) { instance = this; }
@@ -53,7 +56,15 @@ public class ScoreManager : MonoBehaviour
     public void Game_Finished()
     {
         StartCoroutine(LeaderboardManager.instance.Submit_Score_Routine(score));
-        SceneManager.LoadScene("Main Menu");
+        //SceneManager.LoadScene("Main Menu");
+
+        //Open Game Finished Screen
+        game_ui_screen.SetActive(false);
+
+        game_finished_screen.SetActive(true);
+
+        //
+        LeaderboardManager.instance.Fetch_Highscores_Rotine();
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
