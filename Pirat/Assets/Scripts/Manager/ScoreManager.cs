@@ -16,9 +16,15 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text score_t;
     public TMP_Text time_left_t;
 
-
     public GameObject game_ui_screen;
     public GameObject game_finished_screen;
+
+    [Header("Timer Sounds")]
+    public AudioClip ten_sec_sounds;
+    public AudioClip thrity_sec_sounds;
+    public AudioSource audio_controller;
+    bool thirty_played;
+    bool ten_played;
 
     private void Awake()
     {
@@ -33,6 +39,19 @@ public class ScoreManager : MonoBehaviour
             {
                 time_left -= Time.deltaTime;
                 time_left_t.text = "Time Left: " + Mathf.RoundToInt(time_left).ToString();
+
+                if (time_left >= 29f && time_left <= 30f && !thirty_played)
+                {
+                    Debug.LogWarning("30");
+                    audio_controller.clip = thrity_sec_sounds;
+                    audio_controller.Play();
+                }
+                else if(time_left >= 9f && time_left <= 10f && !thirty_played)
+                {
+                    Debug.LogWarning("10");
+                    audio_controller.clip = ten_sec_sounds;
+                    audio_controller.Play();
+                }
             }
             else
             {
