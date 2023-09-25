@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
 
     public GameObject game_ui_screen;
     public GameObject game_finished_screen;
+    public TMP_Text score_t_over;
 
     [Header("Timer Sounds")]
     public AudioClip ten_sec_sounds;
@@ -82,7 +83,8 @@ public class ScoreManager : MonoBehaviour
 
         game_finished_screen.SetActive(true);
 
-        //
+        score_t_over.text = "Score: " + score;
+
         LeaderboardManager.instance.Fetch_Highscores_Rotine();
 
         Cursor.visible = true;
